@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        joystick = GameObject.FindGameObjectWithTag("JoystickObject").GetComponent<Joystick>();
     }
 
     // Update is called once per frame

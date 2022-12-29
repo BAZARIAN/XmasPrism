@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Border
   - Danger
+  - coin
+  - JoystickObject
+  - bank
+  - GameOverPanel
+  - GameManager
+  - bankGameOver
+  - globalBank
   layers:
   - Default
   - TransparentFX
