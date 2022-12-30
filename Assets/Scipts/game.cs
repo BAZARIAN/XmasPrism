@@ -13,8 +13,14 @@ public class game : MonoBehaviour
     void Start()
     {
         string activePLayer = PlayerPrefs.GetString("ActivePlayer", "PlayerBoy");
-        Debug.Log(activePLayer);
-        myPrefab = Resources.Load<GameObject>(activePLayer);
+        if (activePLayer)
+        {
+            myPrefab = Resources.Load<GameObject>(activePLayer);
+        }
+        else
+        {
+            myPrefab = Resources.Load<GameObject>("PlayerBoy");
+        }
         Instantiate(myPrefab, parent, true);
     }
 
