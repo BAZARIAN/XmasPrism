@@ -9,6 +9,8 @@ public class StartGame : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("BoyPlayer", 1);
+        PlayerPrefs.SetInt("GirlPlayer", 0);
+        PlayerPrefs.SetInt("Score", 500);
     }
 
     // Update is called once per frame

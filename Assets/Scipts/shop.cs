@@ -8,6 +8,7 @@ public class shop : MonoBehaviour
 {
     public Text textGirl;
     public Text textBtnGirl;
+    public Text textBank;
 
     // Start is called before the first frame update
     void Start()
@@ -24,20 +25,29 @@ public class shop : MonoBehaviour
     }
     public void btnGirl()
     {
+        if (150 <= PlayerPrefs.GetInt("Score", 0) && PlayerPrefs.GetInt("GirlPlayer") != 0)
+        {
+            int bank = PlayerPrefs.GetInt("Score", 0);
+            PlayerPrefs.SetInt("Score", bank - 150);
+            bank = PlayerPrefs.GetInt("Score", 0);
+            textBank.text = bank.ToString();
+            PlayerPrefs.SetInt("GirlPlayer", 1);
+            searchplayers();
+        }
         if (PlayerPrefs.GetInt("GirlPlayer") == 1)
         {
             PlayerPrefs.SetString("ActivePlayer", "PlayerGirl");
         }
-        else
-        {
-            if (150 <= PlayerPrefs.GetInt("Score", 0))
-            {
-                int bank = PlayerPrefs.GetInt("Score", 0);
-                PlayerPrefs.SetInt("Score", bank - 150);
-                PlayerPrefs.SetInt("GirlPlayer", 1);
-                searchplayers();
-            }
-        }
+        // else
+        // {
+        //     if (150 <= PlayerPrefs.GetInt("Score", 0))
+        //     {
+        //         int bank = PlayerPrefs.GetInt("Score", 0);
+        //         PlayerPrefs.SetInt("Score", bank - 150);
+        //         PlayerPrefs.SetInt("GirlPlayer", 1);
+        //         searchplayers();
+        //     }
+        // }
     }
     // Update is called once per frame
     void Update()
@@ -49,12 +59,12 @@ public class shop : MonoBehaviour
         if (PlayerPrefs.GetInt("GirlPlayer") == 1)
         {
             textGirl.text = "";
-            textBtnGirl.text = "Âûáðàòü";
+            textBtnGirl.text = "Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ";
         }
         else
         {
             textGirl.text = "150 coins";
-            textBtnGirl.text = "Êóïèòü";
+            textBtnGirl.text = "ÐšÑƒÐ¿Ð¸Ñ‚ÑŒ";
         }
     }
 }
