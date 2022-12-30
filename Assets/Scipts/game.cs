@@ -12,14 +12,14 @@ public class game : MonoBehaviour
     // This script will simply instantiate the Prefab when the game starts.
     void Start()
     {
-        string activePLayer = PlayerPrefs.GetString("ActivePlayer", "PlayerBoy");
-        if (activePLayer)
+        string activePLayer = PlayerPrefs.GetString("ActivePlayer");
+        if (activePLayer == "")
         {
-            myPrefab = Resources.Load<GameObject>(activePLayer);
+            myPrefab = Resources.Load<GameObject>("BoyPlayer");
         }
         else
         {
-            myPrefab = Resources.Load<GameObject>("PlayerBoy");
+            myPrefab = Resources.Load<GameObject>(activePLayer);
         }
         Instantiate(myPrefab, parent, true);
     }

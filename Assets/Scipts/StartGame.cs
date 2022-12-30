@@ -9,8 +9,11 @@ public class StartGame : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("BoyPlayer", 1);
-        PlayerPrefs.SetInt("GirlPlayer", 0);
         PlayerPrefs.SetInt("Score", 500);
+        if (PlayerPrefs.GetInt("BoyPlayer") == 1 && PlayerPrefs.GetInt("GirlPlayer") == 0)
+        {
+            PlayerPrefs.SetString("ActivePlayer", "BoyPlayer");
+        }
     }
 
     // Update is called once per frame
